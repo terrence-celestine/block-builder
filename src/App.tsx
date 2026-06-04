@@ -11,6 +11,7 @@ function App() {
   const reorderBlocks = usePageStore((state) => state.reorderBlocks);
   const undo = usePageStore((state) => state.undo);
   const redo = usePageStore((state) => state.redo);
+  const selectedId = usePageStore((state) => state.selectedId);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -54,7 +55,7 @@ function App() {
           <DndContext onDragEnd={handleDragEnd}>
               <Canvas />
           </DndContext> </div>
-        <div className="w-80 border-l"> <PropertiesPanel /> </div>
+        {selectedId && <div className="w-80 border-l"> <PropertiesPanel /> </div>}
       </div>
       </>
   )
