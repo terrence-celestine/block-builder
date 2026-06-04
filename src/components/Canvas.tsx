@@ -23,7 +23,7 @@ export const Canvas = () => {
                 <div 
                     key={block.id} 
                     onClick={() => setSelectedId(block.id)}
-                    className="cursor-pointer hover:ring-2 ring-blue-500"
+                    className="cursor-pointer"
                 >
                     <Component {...block.props} />  
                 </div>

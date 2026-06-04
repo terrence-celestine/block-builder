@@ -29,7 +29,7 @@ export const DraggableBlock = ({ id, children }: DraggableBlockProps) => {
     <div
       ref={setNodeRef}
       style={style}
-      className="bg-white rounded shadow-sm relative p-4"
+      className="bg-white rounded hover:shadow-sm relative p-4"
     >
         <div
             {...attributes}

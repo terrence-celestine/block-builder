@@ -1,12 +1,40 @@
+import { useEffect } from 'react'
 import { DndContext, type DragEndEvent } from '@dnd-kit/core'
 import './App.css'
 import { Canvas } from "./components/Canvas"
 import { usePageStore } from './store/usePageStore'
 import { PropertiesPanel } from './components/PropertiesPanel'
 import { BlockSidebar } from './components/BlockSidebar'
+import { Header } from './components/Header'
 
 function App() {
   const reorderBlocks = usePageStore((state) => state.reorderBlocks);
+  const undo = usePageStore((state) => state.undo);
+  const redo = usePageStore((state) => state.redo);
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      const isMac = /Mac|iPod|iPhone|iPad/.test(navigator.userAgent);
+      const cmdOrCtrl = isMac ? event.metaKey : event.ctrlKey;
+
+      if (cmdOrCtrl && event.key.toLowerCase() === 'z') {
+        event.preventDefault();
+        if (event.shiftKey) {
+          redo();
+        } else {
+          undo();
+        }
+      } else if (cmdOrCtrl && event.key.toLowerCase() === 'y') {
+        event.preventDefault();
+        redo();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [undo, redo]);
 
   const handleDragEnd = (event: DragEndEvent) => {
     const { active, over } = event;
@@ -16,6 +44,8 @@ function App() {
   }
   
   return (
+    <>
+      <Header />
       <div className="flex h-screen">
         <div className="w-64 border-r">     
           <BlockSidebar /> 
@@ -26,6 +56,7 @@ function App() {
           </DndContext> </div>
         <div className="w-80 border-l"> <PropertiesPanel /> </div>
       </div>
+      </>
   )
 }
 

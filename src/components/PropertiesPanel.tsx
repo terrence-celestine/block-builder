@@ -13,8 +13,8 @@ export const PropertiesPanel = () => {
   const { schema } = ComponentRegistry[block.type as keyof typeof ComponentRegistry];
 
   return (
-    <div className="flex flex-col h-full p-4 border-l bg-gray-50">
-        <div className="flex flex-col h-full border-l bg-white border-l-slate-200">
+    <div className="flex flex-col h-full p-4 border-l">
+        <div className="flex flex-col h-full bg-white border-l-slate-200">
         {/* Header Section */}
         <div className="p-4 border-b border-slate-100 flex items-center justify-between">
             <h2 className="text-sm font-semibold text-slate-800 uppercase tracking-wider">
@@ -24,7 +24,7 @@ export const PropertiesPanel = () => {
         
         {Object.entries(schema).map(([propName, type]) => (
           <div key={propName} className="mb-4">
-            <label className="block text-xs font-bold uppercase text-gray-500 mb-1">
+            <label className="block text-xs font-bold uppercase text-gray-500 mb-1 align-left">
               {propName}
             </label>
             
