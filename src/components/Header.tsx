@@ -39,8 +39,6 @@ export const Header = () => {
       </div>
       
       <div className="flex items-center gap-2">
-         <Redo size={18}  onClick={redo} cursor={canRedo ? 'pointer' : 'not-allowed'}/>
-          <Undo size={18}  onClick={undo} cursor={canUndo ? 'pointer' : 'not-allowed'}/>
           <ImportButton />
           <SaveButton />
       </div>
