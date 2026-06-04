@@ -28,6 +28,7 @@ export const Canvas = () => {
            </DraggableBlock>
         );
       })}
+      {!blocks.length && <div className="text-gray-500 text-center py-8">No blocks added yet. Add a block to get started.</div>}
     </SortableContext>
     </div>
   );
