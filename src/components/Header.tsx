@@ -12,7 +12,7 @@ export const Header = () => {
   return (
     <header className="h-14 border-b bg-white flex items-center justify-between px-6 sticky top-0 z-50">
       <div className="flex items-center gap-6">
-        <div className="font-bold text-slate-800 tracking-tight">Builder v1.0</div>
+        <div className="font-bold text-slate-800 tracking-tight">Block Builder v1.0</div>
         
         <div className="flex items-center gap-1 border-l pl-4">
           <button
