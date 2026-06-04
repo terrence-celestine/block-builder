@@ -14,9 +14,9 @@ export const BlockSidebar = () => {
                 <button
                 key={key}
                 onClick={() => addBlock(key)}
-                className="flex items-center gap-3 w-full p-3 rounded-lg hover:bg-gray-100 transition-colors cursor-pointer"
+                className="group flex items-center gap-3 w-full px-3 py-2 rounded-md transition-all bg-slate-100 border border-transparent hover:border-slate-200 cursor-pointer"
             >
-                <Icon size={20} />
+                <Icon size={20} className="group-hover:text-slate-500" />
                 <span className="capitalize">{key}</span>
             </button>
             )

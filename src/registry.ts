@@ -14,15 +14,46 @@ import QuoteBlock from './components/QuoteBlock';
 import VideoBlock from './components/VideoBlock';
 import ListBlock from './components/ListBlock';
 
+// registry.ts
 export const ComponentRegistry = {
-  hero: { component: Hero, icon: ImageIcon },
-  text: { component: TextBlock, icon: Type },
-  columns: { component: TwoColumn, icon: Columns },
-  image: { component: ImageBlock, icon: ImageIcon },
-  button: { component: ButtonBlock, icon: MousePointer },
-  divider: { component: DividerBlock, icon: Minus },
-  spacer: { component: SpacerBlock, icon: ArrowDown },
-  quote: { component: QuoteBlock, icon: MessageSquare },
-  video: { component: VideoBlock, icon: Film },
-  list: { component: ListBlock, icon: List },
+  hero: { 
+    component: Hero, icon: ImageIcon, 
+    schema: { title: 'text', subtext: 'text', imageSource: 'text' } 
+  },
+  text: { 
+    component: TextBlock, icon: Type, 
+    schema: { content: 'text' } 
+  },
+  columns: { 
+    component: TwoColumn, icon: Columns, 
+    schema: { leftContent: 'text', rightContent: 'text' } 
+  },
+  image: { 
+    component: ImageBlock, icon: ImageIcon, 
+    schema: { src: 'text', alt: 'text' } 
+  },
+  button: { 
+    component: ButtonBlock, icon: MousePointer, 
+    schema: { label: 'text', url: 'text', variant: 'select' } 
+  },
+  divider: { 
+    component: DividerBlock, icon: Minus, 
+    schema: { thickness: 'number', color: 'text', margin: 'number' } 
+  },
+  spacer: { 
+    component: SpacerBlock, icon: ArrowDown, 
+    schema: { height: 'number' } 
+  },
+  quote: { 
+    component: QuoteBlock, icon: MessageSquare, 
+    schema: { quote: 'text', author: 'text' } 
+  },
+  video: { 
+    component: VideoBlock, icon: Film, 
+    schema: { url: 'text' } 
+  },
+  list: { 
+    component: ListBlock, icon: List, 
+    schema: { items: 'text', ordered: 'boolean' } 
+  },
 };

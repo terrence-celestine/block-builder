@@ -7,7 +7,9 @@ export const Canvas = () => {
   const { blocks, setSelectedId } = usePageStore();
 
   return (
-    <div className="flex flex-col gap-4 p-8 border-gray-700 min-h-screen ">
+    <div className="bg-slate-100 min-h-screen p-8">
+  <div className="max-w-4xl mx-auto bg-white min-h-[800px] shadow-lg rounded-sm p-4">
+
     <SortableContext items={blocks.map((block) => block.id)} strategy={verticalListSortingStrategy}>
       {blocks.map((block) => {
         // Look up the component in the registry
@@ -30,6 +32,7 @@ export const Canvas = () => {
       })}
       {!blocks.length && <div className="text-gray-500 text-center py-8">No blocks added yet. Add a block to get started.</div>}
     </SortableContext>
+    </div>
     </div>
   );
 };
