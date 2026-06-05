@@ -2,6 +2,7 @@ import { usePageStore } from '../store/usePageStore';
 import { Undo, Redo } from 'lucide-react';
 import { SaveButton } from './SaveButton';
 import { ImportButton } from './ImportButton';
+import { PreviewButton } from './PreviewButton';
 
 export const Header = () => {
   const { past, future, undo, redo } = usePageStore();
@@ -37,7 +38,7 @@ export const Header = () => {
           </button>
         </div>
       </div>
-      
+      <PreviewButton />
       <div className="flex items-center gap-2">
           <ImportButton />
           <SaveButton />

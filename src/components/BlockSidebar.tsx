@@ -41,7 +41,8 @@ export const BlockSidebar = () => {
             return (
                 <button
                 key={key}
-                onClick={() => addBlock(key)}
+                draggable
+                onDragStart={(e) => e.dataTransfer.setData('blockType', key)}
                 className="group flex items-center gap-3 w-full px-3 py-2 rounded-md transition-all bg-slate-100 border border-transparent hover:border-slate-200 cursor-pointer"
             >
                 <Icon size={20} className="group-hover:text-slate-500" />

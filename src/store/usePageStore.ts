@@ -12,6 +12,8 @@ interface PageStore {
   selectedId: string | null;
   past: Block[][];
   future: Block[][];
+  isPreview: boolean;
+  togglePreview: () => void;
   addBlock: (type: string) => void;
   updateBlockProps: (id: string, newProps: Record<string, any>) => void;
   setSelectedId: (id: string | null) => void;
@@ -40,6 +42,7 @@ export const usePageStore = create<PageStore>((set) => ({
   selectedId: null,
   past: [],
   future: [],
+  isPreview: false,
   addBlock: (type) => set((state) => ({ 
     past: [...state.past, state.blocks],
     future: [],
@@ -98,5 +101,6 @@ export const usePageStore = create<PageStore>((set) => ({
       // Clear selected ID if it doesn't exist in the redone state anymore
       selectedId: state.selectedId && next.some(b => b.id === state.selectedId) ? state.selectedId : null
     };
-  })
+  }),
+  togglePreview: () => set((state) => ({ isPreview: !state.isPreview }))
 }));

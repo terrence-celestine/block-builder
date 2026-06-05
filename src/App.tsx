@@ -12,7 +12,7 @@ function App() {
   const undo = usePageStore((state) => state.undo);
   const redo = usePageStore((state) => state.redo);
   const selectedId = usePageStore((state) => state.selectedId);
-
+  const isPreview = usePageStore((state) => state.isPreview);
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       const isMac = /Mac|iPod|iPhone|iPad/.test(navigator.userAgent);
@@ -48,14 +48,18 @@ function App() {
     <>
       <Header />
       <div className="flex h-screen">
-        <div className="w-64 border-r">     
-          <BlockSidebar /> 
-        </div>
+        {!isPreview && (
+            <div className="w-64 border-r">     
+            <BlockSidebar /> 
+          </div>
+        )}
         <div className="flex-1 overflow-y-auto">      
           <DndContext onDragEnd={handleDragEnd}>
               <Canvas />
           </DndContext> </div>
-        {selectedId && <div className="w-80 border-l"> <PropertiesPanel /> </div>}
+          {!isPreview && 
+            selectedId && <div className="w-80 border-l"> <PropertiesPanel /> </div>
+          }
       </div>
       </>
   )
