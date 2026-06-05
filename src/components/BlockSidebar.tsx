@@ -1,10 +1,9 @@
-import { ImageIcon, Layers } from 'lucide-react';
+import { Layers } from 'lucide-react';
 import { ComponentRegistry } from '../registry';
 import { usePageStore } from '../store/usePageStore';
 import { LandingPageTemplate, saasLanding, portfolio, blogPost } from '../const/Templates';
 
 export const BlockSidebar = () => {
-  const addBlock = usePageStore((state) => state.addBlock);
   const setBlocks = usePageStore((state) => state.setBlocks)
 
   return (
