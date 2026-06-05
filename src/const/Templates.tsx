@@ -36,8 +36,8 @@ export const saasLanding = [
 export const portfolio = [
     { id: '1', type: 'hero', props: { title: 'Hi, I am Jane Designer', subtext: 'Crafting digital experiences that matter.', imageSource: 'avatar.jpg' } },
     { id: '2', type: 'text', props: { content: 'Selected Works' } },
-    { id: '3', type: 'image', props: { src: 'project1.png', alt: 'UI/UX Project' } },
-    { id: '4', type: 'image', props: { src: 'project2.png', alt: 'Branding Project' } }
+    { id: '3', type: 'image', props: { src: 'https://placeholdit.com/600x400/dddddd/999999', alt: 'UI/UX Project', width: "half" } },
+    { id: '4', type: 'image', props: { src: 'https://placeholdit.com/600x400/dddddd/999999', alt: 'Branding Project', width: "half" } }
 ];
 
 export const blogPost = [

@@ -30,11 +30,11 @@ export const ComponentRegistry = {
   },
   image: { 
     component: ImageBlock, icon: ImageIcon, 
-    schema: { src: 'text', alt: 'text' } 
+    schema: { src: 'text', alt: 'text'} 
   },
   button: { 
     component: ButtonBlock, icon: MousePointer, 
-    schema: { label: 'text', url: 'text', variant: 'select' } 
+    schema: { label: 'text', url: 'text', variant: 'select', backgroundColor: 'color' } 
   },
   divider: { 
     component: DividerBlock, icon: Minus, 

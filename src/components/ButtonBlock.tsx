@@ -3,12 +3,14 @@ interface ButtonBlockProps {
     label?: string;
     url?: string;
     variant?: 'solid' | 'outline';
+    backgroundColor?: string;
   }
   
   const ButtonBlock = ({ 
     label = "Click Me", 
     url = "#", 
-    variant = "solid" 
+    variant = "solid",
+    backgroundColor = "blue"
   }: ButtonBlockProps) => {
     const baseStyles = "px-6 py-2 rounded-lg font-medium transition-colors";
     const variants = {
@@ -20,7 +22,8 @@ interface ButtonBlockProps {
       <div className="w-full flex justify-center py-2">
         <a 
           href={url} 
-          className={`${baseStyles} ${variants[variant]}`}
+          style={{ backgroundColor: backgroundColor }}
+          className={`${baseStyles} ${variants[variant]} text-white`}
         >
           {label}
         </a>

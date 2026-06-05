@@ -13,8 +13,8 @@ export const PropertiesPanel = () => {
   const { schema } = ComponentRegistry[block.type as keyof typeof ComponentRegistry];
 
   return (
-    <div className="flex flex-col h-full p-4 border-l">
-        <div className="flex flex-col h-full bg-white border-l-slate-200">
+    <div className="flex flex-col h-full p-4 border-l overflow-auto">
+        <div className="flex flex-col h-full bg-white border-l-slate-200 overflow-auto">
         {/* Header Section */}
         <div className="p-4 border-b border-slate-100 flex items-center justify-between">
             <h2 className="text-sm font-semibold text-slate-800 uppercase tracking-wider">
@@ -64,7 +64,16 @@ export const PropertiesPanel = () => {
                 <option value="outline">Outline</option>
               </select>
             )}
-          </div>
+
+            {type === 'color' && (
+              <input 
+                type="color"
+                className="h-10 w-full cursor-pointer rounded border"
+                value={block.props[propName] || '#3b82f6'}
+                onChange={(e) => updateBlockProps(block.id, { [propName]: e.target.value })}
+              />
+            )}
+            </div>
         ))}
       </div>
 
